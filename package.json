@@ -1,8 +1,7 @@
 {
   "name": "bluebadgenode",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +15,15 @@
     "nodemon": "^1.19.4",
     "pg": "^7.18.2",
     "sequelize": "^5.22.3"
-  }
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeytonNix50/blueBadgeNode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PeytonNix50/blueBadgeNode/issues"
+  },
+  "homepage": "https://github.com/PeytonNix50/blueBadgeNode#readme",
+  "description": ""
 }
