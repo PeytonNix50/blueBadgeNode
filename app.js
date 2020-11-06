@@ -12,7 +12,7 @@ app.use(Express.json());
 // const suppliesController = require('./controllers/suppliescontroller');
 // app.use('/supplies', suppliesController);
 
-// const userController = require('./controllers/usercontroller');
-// app.use('/user', userController);
+const userController = require('./controllers/usercontroller');
+app.use('/user', userController);
 
 app.listen(process.env.PORT, function() { console.log(`app is listening on port ${process.env.PORT}`) });
