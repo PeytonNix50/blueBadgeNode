@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Reviews = require('../db').import('../models/reviews');
+const {Op} = require('sequelize')
 
 const validateSession = require('../middleware/validate_session');
 
@@ -26,13 +27,35 @@ router.post('/', validateSession, (req, res) => {
 // How to get items unique to user?
 // owner: req.user.id
 
-router.get('/:id', validateSession, (req, res) => {
+router.get('/id/:id', (req, res) => {
   Reviews.findOne({
     where: {
       id: req.params.id
     }
   })
   .then(review => res.status(200).json(review))
+  .catch(err => res.status(500).json({error: "Review not found"}))
+});
+
+// router.get('/:rating', validateSession, (req, res) => {
+//   Reviews.findOne({
+//     where: {
+//       rating: req.params.rating
+//     }
+//   })
+//   .then(review => res.status(200).json(review))
+//   .catch(err => res.status(500).json({error: "Review not found"}))
+// });
+
+router.get('/location/:location', (req, res) => {
+  Reviews.findAll({
+    where: {
+      location: {
+        [Op.iLike]: '%' + req.params.location + '%'
+      }
+    }
+  })
+  .then(item => res.status(200).json(item))
   .catch(err => res.status(500).json({error: "Review not found"}))
 });
 

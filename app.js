@@ -12,8 +12,8 @@ app.use(Express.json());
 const reviewsController = require('./controllers/reviewscontroller');
 app.use('/reviews', reviewsController);
 
-const campsiteController = require('./controllers/campsitecontroller');
-app.use('/campsite', campsiteController);
+// const campsiteController = require('./controllers/campsitecontroller');
+// app.use('/campsite', campsiteController);
 
 const userController = require('./controllers/usercontroller');
 app.use('/user', userController);
