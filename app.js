@@ -7,7 +7,7 @@ database.sync();
 
 app.use(Express.json());
 
-// app.use(require('./middleware/headers'));
+app.use(require('./middleware/headers'));
 
 const reviewsController = require('./controllers/reviewscontroller');
 app.use('/reviews', reviewsController);

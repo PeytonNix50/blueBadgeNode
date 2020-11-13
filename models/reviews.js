@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     date: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    owner: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   })
   return Reviews;
