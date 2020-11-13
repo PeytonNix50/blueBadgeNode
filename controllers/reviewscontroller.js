@@ -16,7 +16,8 @@ router.post('/', validateSession, (req, res) => {
     rating: req.body.rating,
     location: req.body.location,
     description: req.body.description,
-    date: req.body.date
+    date: req.body.date,
+    owner: req.user.id
   }
 
   Reviews.create(reviewsFromRequest)
