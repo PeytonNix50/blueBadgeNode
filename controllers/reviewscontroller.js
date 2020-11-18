@@ -60,17 +60,17 @@ router.get('/location/:location', (req, res) => {
   .catch(err => res.status(500).json({error: "Review not found"}))
 });
 
-router.put('/:name', validateSession, (req, res) => {
+router.put('/:id', (req, res) => {
   Reviews.update(req.body, {
     where: {
-      trailName: req.params.name
+      id: req.params.id
     }
   })
   .then(review => res.status(200).json(review))
   .catch(err => res.status(500).json({error: "Update not successful"}))
 });
 
-router.delete('/:id', validateSession, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
       const result = await Reviews.destroy({
           where: { id: req.params.id }
