@@ -28,10 +28,10 @@ router.post('/', validateSession, (req, res) => {
 // How to get items unique to user?
 // owner: req.user.id
 
-router.get('/id/:id', (req, res) => {
+router.get('/name/:name', (req, res) => {
   Reviews.findOne({
     where: {
-      id: req.params.id
+      id: req.params.name
     }
   })
   .then(review => res.status(200).json(review))
