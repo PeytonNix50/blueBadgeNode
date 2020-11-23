@@ -28,15 +28,15 @@ router.post('/', validateSession, (req, res) => {
 // How to get items unique to user?
 // owner: req.user.id
 
-router.get('/name/:name', (req, res) => {
-  Reviews.findOne({
-    where: {
-      id: req.params.name
-    }
-  })
-  .then(review => res.status(200).json(review))
-  .catch(err => res.status(500).json({error: "Review not found"}))
-});
+// router.get('/name/:name', (req, res) => {
+//   Reviews.findOne({
+//     where: {
+//       trailName: req.params.name
+//     }
+//   })
+//   .then(review => res.status(200).json(review))
+//   .catch(err => res.status(500).json({error: "Review not found"}))
+// });
 
 // router.get('/:rating', validateSession, (req, res) => {
 //   Reviews.findOne({
@@ -48,11 +48,11 @@ router.get('/name/:name', (req, res) => {
 //   .catch(err => res.status(500).json({error: "Review not found"}))
 // });
 
-router.get('/location/:location', (req, res) => {
+router.get('/name/:name', (req, res) => {
   Reviews.findAll({
     where: {
-      location: {
-        [Op.iLike]: '%' + req.params.location + '%'
+      trailName: {
+        [Op.iLike]: '%' + req.params.name + '%'
       }
     }
   })
